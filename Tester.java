@@ -33,7 +33,7 @@ class GsonClass extends SonClass {
     }
 }
 
-public class Tester{
+public class Tester {
     static void main(String[] argus){
         new GsonClass();
     }
