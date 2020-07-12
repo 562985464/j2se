@@ -1,5 +1,6 @@
 package com.dayup;
 
+import com.dayup.base.InterfaceTester;
 import com.dayup.pattern.ProxyPattern;
 import com.dayup.pattern.StatePattern;
 
@@ -12,6 +13,7 @@ public class Main {
         //InheritTester.test();
         //PackageTester.test();
         //ProxyPattern.test();
-        StatePattern.test();
+        //StatePattern.test();
+        InterfaceTester.test();
     }
 }
