@@ -1,6 +1,7 @@
 package com.dayup;
 
 import com.dayup.pattern.ProxyPattern;
+import com.dayup.pattern.StatePattern;
 
 public class Main {
     public static void main(String[] args) throws Exception{
@@ -10,6 +11,7 @@ public class Main {
         //LabelTester.testOuterLabel();
         //InheritTester.test();
         //PackageTester.test();
-        ProxyPattern.test();
+        //ProxyPattern.test();
+        StatePattern.test();
     }
 }
