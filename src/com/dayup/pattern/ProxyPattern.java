@@ -59,6 +59,20 @@ class JDKProxyFactory {
                     }
                 });
     }
+    public Object getProxyInstance2() {
+        class MyInvocationHandler implements InvocationHandler {
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                System.out.println(proxy.getClass());
+                System.out.println("开始事务");
+                //执行目标对象方法
+                Object returnValue = method.invoke(object, args);
+                System.out.println("提交事务");
+                return returnValue;            }
+        }
+        InvocationHandler inv = new MyInvocationHandler();
+        return Proxy.newProxyInstance(object.getClass().getClassLoader(), object.getClass().getInterfaces(), inv);
+    }
 }
 
 class CglibProxyFactory implements MethodInterceptor {
@@ -90,7 +104,7 @@ public class ProxyPattern {
         img.display();
         // jdk动态代理，目标对象必须实现接口
         RealImage realImage = new RealImage("def.jpg");
-        MyImage img2 = (MyImage) new JDKProxyFactory(realImage).getProxyInstance();
+        MyImage img2 = (MyImage) new JDKProxyFactory(realImage).getProxyInstance2();
         img2.display();
         for (Class c: img2.getClass().getInterfaces()) {
             // 动态生成的代理对象，实际实现了目标对象的接口，因此这里会打印出MyImage

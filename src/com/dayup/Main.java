@@ -13,9 +13,9 @@ public class Main {
         //LabelTester.testOuterLabel();
         //InheritTester.test();
         //PackageTester.test();
-        //ProxyPattern.test();
+        ProxyPattern.test();
         //StatePattern.test();
         //InterfaceTester.test();
-        InnerClassTester.test();
+        //InnerClassTester.test();
     }
 }
