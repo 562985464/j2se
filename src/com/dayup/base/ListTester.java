@@ -4,30 +4,25 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-class ListObject {
-    private int field;
-    public ListObject(int field) {
-        this.field = field;
-    }
 
-    @Override
-    public String toString() {
-        return "object_" + field;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return field == ((ListObject)obj).field;
-    }
-}
 
 public class ListTester {
-    interface MyConsumer<T> extends Consumer<T> {
+    private interface MyConsumer<T> extends Consumer<T> {
         @Override
         void accept(T t);
         void process(T t);
     }
+    private class ListObject {
+        private int field;
+        public ListObject(int field) {
+            this.field = field;
+        }
 
+        @Override
+        public String toString() {
+            return "object_" + field;
+        }
+    }
     public void testArrayList() {
         // 没有指定类型，列表中默认是Object类型
         List list = new ArrayList();
