@@ -4,8 +4,6 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-
-
 public class ListTester {
     private interface MyConsumer<T> extends Consumer<T> {
         @Override
@@ -36,7 +34,7 @@ public class ListTester {
         System.out.println(obj);
         System.out.println(list);
         // 指定了类型
-        List<ListObject> list2 = new ArrayList<ListObject>();
+        List<ListObject> list2 = new ArrayList<>();
         list2.add(listObj1);
         list2.add(listObj2);
         list2.add(listObj3);
@@ -122,7 +120,7 @@ public class ListTester {
     }
 
     public static void test() {
-        //new ListTester().testArrayList();
+        new ListTester().testArrayList();
         new ListTester().testLinkedList();
     }
 }
