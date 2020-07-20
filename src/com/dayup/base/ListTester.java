@@ -119,8 +119,48 @@ public class ListTester {
         System.out.println(list.getLast());
     }
 
+    public void testIterator() {
+        List<Object> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        System.out.println(list);
+        ListIterator<Object> iterator = list.listIterator();
+        boolean addCon = true;
+        while (iterator.hasNext()) {
+            Object obj = iterator.next();
+            System.out.println(CFunction.__INFO__() + obj);
+            iterator.set('Y');
+            if (addCon) {
+                iterator.add('x');
+            }
+            // 注意，在迭代器中，set可以在add之前，反之则不可以。
+            // 具体原因为执行了add后，设置了迭代器内的lastRet值为-1，再执行set时找不到要set哪个未知的元素。
+            // iterator.set('Y');
+        }
+        System.out.println(list);
+        while (iterator.hasPrevious()) {
+            Object obj = iterator.previous();
+            System.out.println(CFunction.__INFO__() + obj);
+            if (addCon) {
+                addCon = false;
+                iterator.set('Y');
+                iterator.add('Z');
+            }
+        }
+        System.out.println(list);
+        ListIterator<Object> iterator2 = list.listIterator();
+        // 此时游标在开头，没有前节点，所以下面的while循环不执行
+        while (iterator2.hasPrevious()) {
+            Object obj = iterator2.previous();
+            System.out.println(CFunction.__INFO__() + obj);
+        }
+    }
+
     public static void test() {
-        new ListTester().testArrayList();
-        new ListTester().testLinkedList();
+        //new ListTester().testArrayList();
+        //new ListTester().testLinkedList();
+        new ListTester().testIterator();
     }
 }
