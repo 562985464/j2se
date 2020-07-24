@@ -5,12 +5,13 @@ import com.dayup.pattern.ProxyPattern;
 import com.dayup.pattern.SingletonPattern;
 import com.dayup.pattern.StatePattern;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) throws Exception{
-        //ArrayTester.testArrayInit();
-        //ArrayTester.testArrayStyle();
-        //LabelTester.testOuterLabel();
-        //LabelTester.testOuterLabel();
+        ArrayTester.test();
+        //LabelTester.test();
         //InheritTester.test();
         //PackageTester.test();
         //ProxyPattern.test();
@@ -21,6 +22,6 @@ public class Main {
         //SetTester.test();
         //MapTester.test();
         //VolatileTester.test();
-        SingletonPattern.test();
+        //SingletonPattern.test();
     }
 }

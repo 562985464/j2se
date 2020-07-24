@@ -1,6 +1,7 @@
 package com.dayup.base;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Iterator;
 import java.util.Random;
 
 interface InnerClassInterface {
@@ -120,6 +121,32 @@ class OuterClass2 {
     }
 }
 
+class OuterClass3 implements Iterable<Integer>{
+    private int[] array;
+    public OuterClass3(int size) {
+        array = new int[size];
+        for (int index = 0; index < size; index++) {
+            array[index] = new Random().nextInt(32);
+        }
+    }
+    // 匿名内部类，迭代器实现
+    @Override
+    public Iterator<Integer> iterator() {
+        return new Iterator<>() {
+            private int index = 0;
+            @Override
+            public boolean hasNext() {
+                return index < array.length;
+            }
+
+            @Override
+            public Integer next() {
+                return array[index++];
+            }
+        };
+    }
+}
+
 public class InnerClassTester {
     public static void InnerClassTest1() {
         new OuterClass().innerObj.outerFunc();
@@ -136,8 +163,21 @@ public class InnerClassTester {
         OuterClass2.getInner3().printSth();
     }
 
+    public static void InnerClassTest3() {
+        OuterClass3 outerClass3 = new OuterClass3(6);
+        // 两种迭代用法
+        for (Iterator<Integer> it = outerClass3.iterator(); it.hasNext(); ) {
+            Integer x = it.next();
+            System.out.println(x);
+        }
+        for (Integer x : outerClass3) {
+            System.out.println(x);
+        }
+    }
+
     public static void test() {
-        InnerClassTest1();
-        InnerClassTest2();
+        //InnerClassTest1();
+        //InnerClassTest2();
+        InnerClassTest3();
     }
 }

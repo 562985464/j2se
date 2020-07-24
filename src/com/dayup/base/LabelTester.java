@@ -26,4 +26,7 @@ public class LabelTester {
             }
         }
     }
+    public static void test() {
+
+    }
 }
