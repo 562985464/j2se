@@ -1,5 +1,6 @@
 package com.dayup.base;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Random;
 
 interface InnerClassInterface {
@@ -63,6 +64,7 @@ class OuterClass {
         static void invalid(){}
         */
     }
+    static  class InnerClass2 {}
 }
 
 abstract class AbstractClass {
@@ -124,6 +126,7 @@ public class InnerClassTester {
         new OuterClass().outerFunc();
         OuterClass.InnerClass innerClass = new OuterClass().getInnerClassObject();
         new OuterClass().new InnerClass(1).getOuterClassObject();
+        new OuterClass.InnerClass2();
     }
 
     public static void InnerClassTest2() {
