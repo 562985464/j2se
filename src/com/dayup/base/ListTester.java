@@ -157,10 +157,26 @@ public class ListTester {
             System.out.println(CFunction.__INFO__() + obj);
         }
     }
+    // 带有优先级的队列
+    void testPriorityQueue() {
+        PriorityQueue<ListObject> priorityQueue = new PriorityQueue<>(new Comparator<ListObject>() {
+            @Override
+            public int compare(ListObject o1, ListObject o2) {
+                return 0;
+            }
+        });
+        priorityQueue.offer(new ListObject(1));
+        priorityQueue.offer(new ListObject(2));
+        priorityQueue.offer(new ListObject(3));
+        priorityQueue.offer(new ListObject(4));
+        System.out.println(priorityQueue.poll());
+        System.out.println(priorityQueue);
+    }
 
     public static void test() {
         //new ListTester().testArrayList();
         //new ListTester().testLinkedList();
-        new ListTester().testIterator();
+        //new ListTester().testIterator();
+        new ListTester().testPriorityQueue();
     }
 }

@@ -1,16 +1,10 @@
 package com.dayup;
 
 import com.dayup.base.*;
-import com.dayup.pattern.ProxyPattern;
-import com.dayup.pattern.SingletonPattern;
-import com.dayup.pattern.StatePattern;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws Exception{
-        ArrayTester.test();
+        //ArrayTester.test();
         //LabelTester.test();
         //InheritTester.test();
         //PackageTester.test();
@@ -23,5 +17,8 @@ public class Main {
         //MapTester.test();
         //VolatileTester.test();
         //SingletonPattern.test();
+        //MyAnnotationTester.test();
+        //ThreadTester.test();
+        //ConcurrentTester.test();
     }
 }

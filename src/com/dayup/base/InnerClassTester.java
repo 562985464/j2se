@@ -94,6 +94,7 @@ class OuterClass2 {
 
             // 匿名内部类没有有参构造函数，可以使用如下代码块实现带参数的构造的效果
             {
+                // 匿名内部类中使用外部参数/变量，必须是final的，可是显示修饰final input或者必须保证input变量不能被修改
                 sth = input;
             }
 
